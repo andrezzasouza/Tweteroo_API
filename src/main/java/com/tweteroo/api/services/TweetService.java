@@ -35,4 +35,14 @@ public class TweetService {
   public List<TweetModel> getAll() {
     return tweetRepository.findAll();
   }
+
+  public Optional<List<TweetModel>> getTweetsByUser(Long userId) {
+    Optional<UserModel> user = userRepository.findById(userId);
+
+    if (!user.isPresent()) {
+      return Optional.empty();
+    }
+
+    return Optional.of(tweetRepository.findByUserId(userId));
+  }
 }
