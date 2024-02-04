@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class UserDTO {
   @NotBlank(message = "O nome de usuário é obrigatório.")
-  @Size(max = 100)
+  @Size(max = 100, message = "O nome de usuário deve ter no máximo 100 caracteres")
   private String username;
 
   @NotBlank(message = "O avatar é obrigatório.")

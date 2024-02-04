@@ -1,7 +1,5 @@
 package com.tweteroo.api.models;
 
-import java.util.UUID;
-
 import com.tweteroo.api.dtos.UserDTO;
 
 import jakarta.persistence.Column;
@@ -24,10 +22,10 @@ public class UserModel {
     this.username = dto.getUsername();
     this.avatar = dto.getAvatar();
   }
-  
+
   @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
-  private UUID id;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  private Long id;
 
   @Column(length = 100, nullable = false, unique = true)
   private String username;
