@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class UserDTO {
   @NotBlank(message = "O nome de usuário é obrigatório.")
-  @Size(max = 150)
+  @Size(max = 100)
   private String username;
 
   @NotBlank(message = "O avatar é obrigatório.")
