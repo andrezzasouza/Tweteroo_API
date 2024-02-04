@@ -1,5 +1,6 @@
 package com.tweteroo.api.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import com.tweteroo.api.services.TweetService;
 
 import jakarta.validation.Valid;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -34,5 +36,12 @@ public class TweetController {
     }
 
     return ResponseEntity.status(HttpStatus.CREATED).body(tweet);
+  }
+
+  @GetMapping
+  public ResponseEntity<List<TweetModel>> getTweets() {
+    List<TweetModel> tweets = tweetService.getAll();
+
+    return ResponseEntity.status(HttpStatus.OK).body(tweets);
   }
 }
